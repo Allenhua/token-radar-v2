@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div>
+      <h1>Token Radar</h1>
+      <p class="sub">Protocols that record no token yet, ranked by what a token would be worth if the record stayed as it is.</p>
+    </div>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+
+<section class="stats" id="stats" aria-label="Snapshot summary"></section>
+
+<section class="top10" id="top10" aria-label="Top 10 protocols by implied value"></section>
+
+<section class="modelcard" id="modelcard" aria-label="How the value is derived"></section>
+
+<section class="controls" aria-label="Board controls">
+  <label class="search">
+    <span class="sr">Search protocols</span>
+    <input id="q" type="search" placeholder="Search name or slug…" autocomplete="off">
+  </label>
+  <label>
+    <span class="sr">Category</span>
+    <select id="cat"></select>
+  </label>
+  <label>
+    <span class="sr">Chain</span>
+    <select id="chain"></select>
+  </label>
+  <label>
+    <span class="sr">Sort by</span>
+    <select id="sort">
+      <option value="rank">Rank (implied value)</option>
+      <option value="tvl">TVL, high to low</option>
+      <option value="growth">7-day growth</option>
+      <option value="age">Longest without a token</option>
+    </select>
+  </label>
+  <label class="toggle"><input id="watchonly" type="checkbox"> Watchlist only</label>
+  <label class="toggle"><input id="earlyonly" type="checkbox"> Early radar only</label>
+  <span class="count" id="count"></span>
+</section>
+
+<main class="layout">
+  <div class="tablewrap">
+    <table id="board">
+      <thead>
+        <tr>
+          <th class="num">#</th><th>Protocol</th><th class="num">TVL</th>
+          <th class="num">7d</th><th class="num">Age</th><th class="num">Implied value</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No protocol matches these filters.</p>
+  </div>
+  <aside class="detail" id="detail" aria-label="Protocol detail"></aside>
+</main>
+
+<section class="live" id="live" aria-label="Live-token protocols for calibration"></section>
+
+<footer class="foot" id="foot"></footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
